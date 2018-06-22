@@ -1,0 +1,32 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Mong <ongspxm@gmail.com>
+pkgname=dwm
+pkgver=0.1
+pkgrel=1
+pkgdesc="dwm lorh..."
+arch=('any')
+url="https://github.com/ongspxm/$pkgname"
+license=('LOL')
+
+source=("$url/archive/master.tar.gz")
+sha256sums=('970c785addedfa050b97ff0b56394e06351358bcf5eba8e2360b5d588d35efb2')
+
+prepare() {
+    cp ../config.h "$pkgname-master"
+	cd "$pkgname-master"
+    make clean
+}
+
+build() {
+	cd "$pkgname-master"
+	make
+}
+
+package() {
+	cd "$pkgname-master"
+	make DESTDIR="$pkgdir/" install
+}

@@ -12,6 +12,8 @@ arch=('any')
 url="https://github.com/ongspxm/$pkgname"
 license=('LOL')
 
+depends=('dmenu' 'trayer' 'slock')
+
 source=("$url/archive/master.tar.gz")
 sha256sums=('970c785addedfa050b97ff0b56394e06351358bcf5eba8e2360b5d588d35efb2')
 
